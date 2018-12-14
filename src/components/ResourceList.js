@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import useResources from './useResources';
 
 const ResourceList = ({ resource }) => {
+    
   //////    Without hooks in class based component  start  //////
   //     state = { resources: []}
 
@@ -23,21 +24,8 @@ const ResourceList = ({ resource }) => {
 
   /////   With hooks  //////
 
-  const [resources, setResources] = useState([]);
-
-  useEffect(
-    () => {
-      (async resource => {
-        const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/${resource}`
-        );
-
-        setResources(response.data);
-      })(resource);  //useEffect cleanup requirement (for async) fulfillment intelligently
-    },
-    [resource]
-  );
-
+  const resources = useResources(resource);
+  
   return <div>{resources.length}</div>;
 };
 

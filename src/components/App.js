@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ResourceList from './ResourceList';
+import UserList from './UserList';
 
 const App = () => {
     const [resource,setResource] = useState('posts') //Array destructuring
@@ -13,6 +14,7 @@ const App = () => {
           Todo
         </button>
       </div>
+      <UserList />
       <ResourceList resource={resource} />
     </div>
   );
