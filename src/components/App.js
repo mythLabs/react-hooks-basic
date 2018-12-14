@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ResourceList from './ResourceList';
 
 const App = () => {
     const [resource,setResource] = useState('posts') //Array destructuring
@@ -12,7 +13,7 @@ const App = () => {
           Todo
         </button>
       </div>
-      {resource}
+      <ResourceList resource={resource} />
     </div>
   );
 };
